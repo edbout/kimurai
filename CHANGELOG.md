@@ -1,4 +1,12 @@
 # CHANGELOG
+## 1.4.1 
+### Fix for Heroku
+* Updated lib/capybara_ext/selenium/driver.rb
+* Heroku does not allow ==> `lsof -i tcp:#{port} -t`.strip.to_i
+* Updated base_helper.rb
+* URI.escape obsolete
+
+# CHANGELOG
 ## 1.4.0
 ### New
 * Add `encoding` config option (see [All available config options](https://github.com/vifreefly/kimuraframework#all-available-config-options))
