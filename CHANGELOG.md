@@ -3,8 +3,12 @@
 ### Fix for Heroku
 * Updated lib/capybara_ext/selenium/driver.rb
 * Heroku does not allow ==> `lsof -i tcp:#{port} -t`.strip.to_i
+  
 * Updated base_helper.rb
 * URI.escape obsolete
+
+* Updated capybara_configuration.rb
+* Added buildpack settings
 
 # CHANGELOG
 ## 1.4.0
