@@ -9,6 +9,7 @@ Capybara.configure do |config|
   config.threadsafe = true
 end
 
+=begin
 # added for heroku
 
 chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
@@ -23,3 +24,4 @@ Capybara.register_driver :chrome do |app|
 end
 
 Capybara.javascript_driver = :chrome
+=end

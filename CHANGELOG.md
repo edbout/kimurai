@@ -7,9 +7,6 @@
 * Updated base_helper.rb
 * URI.escape obsolete
 
-* Updated capybara_configuration.rb
-* Added buildpack settings
-
 # CHANGELOG
 ## 1.4.0
 ### New
