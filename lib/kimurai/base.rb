@@ -312,10 +312,7 @@ module Kimurai
               spider.request_to(handler, delay, url: url_data, data: data)
             end
           end
-        ensure
-          spider.browser.destroy_driver! if spider.instance_variable_get("@browser")
         end
-
         sleep 0.5
       end
 

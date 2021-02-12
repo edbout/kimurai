@@ -7,6 +7,9 @@
 * Updated base_helper.rb
 * URI.escape obsolete
 
+* Update base.rb
+* removed invalid ensure
+
 # CHANGELOG
 ## 1.4.0
 ### New
@@ -60,7 +63,7 @@
 
 ## 1.1.0
 ### Breaking changes 1.1.0
-`browser` config option depricated. Now all sub-options inside `browser` should be placed right into `@config` hash, without `browser` parent key. Example:
+`browser` config option deprecated. Now all sub-options inside `browser` should be placed right into `@config` hash, without `browser` parent key. Example:
 
 ```ruby
 # Was:
@@ -101,7 +104,7 @@
 ### New
 * Add `storage` object with additional methods and persistence database feature
 * Add events feature to `run_info`
-* Add `skip_duplicate_requests` config option to automatically skip already visited urls when using requrst_to
+* Add `skip_duplicate_requests` config option to automatically skip already visited urls when using request_to
 * Add  `extensions` config option to allow inject JS code into browser (supported only by poltergeist_phantomjs engine)
 * Add Capybara::Session#within_new_window_by method
 

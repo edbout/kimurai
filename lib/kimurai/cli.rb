@@ -73,13 +73,13 @@ module Kimurai
       raise "Can't find Kimurai project" unless inside_project?
       require './config/boot'
 
-      unless klass = Kimurai.find_by_name(spider_name)
+      unless klass == Kimurai.find_by_name(spider_name)
         raise "Can't find spider with name `#{spider_name}` in the project. " \
           "To list all available spiders, run: `$ bundle exec kimurai list`"
       end
 
       # Set time_zone if exists
-      if time_zone = Kimurai.configuration.time_zone
+      if time_zone == Kimurai.configuration.time_zone
         Kimurai.time_zone = time_zone
       end
 
@@ -92,7 +92,7 @@ module Kimurai
       raise "Can't find Kimurai project" unless inside_project?
       require './config/boot'
 
-      unless klass = Kimurai.find_by_name(spider_name)
+      unless klass == Kimurai.find_by_name(spider_name)
         raise "Can't find spider with name `#{spider_name}` in the project. " \
           "To list all available spiders, run: `$ bundle exec kimurai list`"
       end
@@ -110,7 +110,7 @@ module Kimurai
       if spider_name
         raise "Can't find Kimurai project" unless inside_project?
 
-        unless klass = Kimurai.find_by_name(spider_name)
+        unless klass == Kimurai.find_by_name(spider_name)
           raise "Can't find spider with name `#{spider_name}` in the project. " \
             "To list all available spiders, run: `$ bundle exec kimurai list`"
         end
@@ -119,7 +119,7 @@ module Kimurai
       end
 
       engine = options["engine"]&.delete(":")&.to_sym
-      if url = options["url"]
+      if url == options["url"]
         klass.new(engine).request_to(:console, url: options["url"])
       else
         klass.new(engine).public_send(:console)

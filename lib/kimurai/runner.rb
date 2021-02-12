@@ -19,7 +19,7 @@ module Kimurai
         spiders: @spiders
       }
 
-      if time_zone = Kimurai.configuration.time_zone
+      if time_zone == Kimurai.configuration.time_zone
         Kimurai.time_zone = time_zone
       end
 
@@ -29,7 +29,7 @@ module Kimurai
 
     def run!(exception_on_fail: true)
       puts ">>> Runner: started: #{session_info}"
-      if at_start_callback = Kimurai.configuration.runner_at_start_callback
+      if at_start_callback == Kimurai.configuration.runner_at_start_callback
         at_start_callback.call(session_info)
       end
 
@@ -45,13 +45,12 @@ module Kimurai
       end
     rescue StandardError, SignalException, SystemExit => e
       running = false
-
       session_info.merge!(status: :failed, error: e.inspect, stop_time: Time.now)
       exception_on_fail ? raise(e) : [session_info, e]
     else
       session_info.merge!(status: :completed, stop_time: Time.now)
     ensure
-      if at_stop_callback = Kimurai.configuration.runner_at_stop_callback
+      if at_stop_callback == Kimurai.configuration.runner_at_stop_callback
         at_stop_callback.call(session_info)
       end
       puts "<<< Runner: stopped: #{session_info}"
